@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meridian Dental Studio | Calm, Premium Dentistry in Austin</title>
   <meta name="description" content="Meridian Dental Studio — calm, unhurried dentistry in Austin. Preventive, cosmetic, implants, Invisalign and same-day emergency care, with comfort built into every visit." />
   <link rel="canonical" href="https://meridian-taupe-seven.vercel.app/" />
-  <meta name="theme-color" content="#1F3D34" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#14170F" media="(prefers-color-scheme: dark)" />
-  <meta name="color-scheme" content="light dark" />
+  <!-- Bilingual alternates -->
+  <link rel="alternate" hreflang="en" href="https://meridian-taupe-seven.vercel.app/?lang=en" />
+  <link rel="alternate" hreflang="ar" href="https://meridian-taupe-seven.vercel.app/?lang=ar" />
+  <link rel="alternate" hreflang="x-default" href="https://meridian-taupe-seven.vercel.app/" />
+  <meta name="theme-color" content="#1F3D34" />
+  <meta name="color-scheme" content="light" />
   <!-- Favicon: evergreen tile with brass arch mark (inline SVG, no extra request) -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2034%2034'%3E%3Crect%20width='34'%20height='34'%20rx='8'%20fill='%231F3D34'/%3E%3Cpath%20d='M17%207c-5%200-8.5%203.6-8.5%208.5V27h17V15.5C25.5%2010.6%2022%207%2017%207z'%20fill='none'%20stroke='%23B08D57'%20stroke-width='2'/%3E%3C/svg%3E" />
   <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2034%2034'%3E%3Crect%20width='34'%20height='34'%20fill='%231F3D34'/%3E%3Cpath%20d='M17%207c-5%200-8.5%203.6-8.5%208.5V27h17V15.5C25.5%2010.6%2022%207%2017%207z'%20fill='none'%20stroke='%23B08D57'%20stroke-width='2'/%3E%3C/svg%3E" />
@@ -26,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.unsplash.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=El+Messiri:wght@500;600;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Preload the LCP hero image -->
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=80" fetchpriority="high" />
 
@@ -71,11 +74,12 @@
 
   <style>
   /* =============================================================
-     MERIDIAN DENTAL — "Quiet-luxury apothecary" redesign
+     MERIDIAN DENTAL — "Quiet-luxury apothecary"
      Warm bone canvas · evergreen + brass · Fraunces / Inter
+     Bilingual EN / AR (RTL) · light theme only
      ============================================================= */
 
-  /* ---- Design tokens (light) ---- */
+  /* ---- Design tokens ---- */
   :root{
     --canvas:#FBF8F3;        /* warm bone page bg */
     --surface:#FFFFFF;       /* cards */
@@ -92,7 +96,6 @@
     --border:#E7DFD2;
     --btn-bg:#1F3D34; --btn-fg:#FBF8F3;
     --on-primary:#F1EEE6;    /* text on evergreen blocks */
-    --on-primary-mut:#BDCbc3;
 
     --shadow-sm:0 1px 2px rgba(31,61,52,.05), 0 6px 20px rgba(31,61,52,.06);
     --shadow-md:0 10px 40px rgba(31,61,52,.12);
@@ -107,47 +110,23 @@
     --ease:cubic-bezier(.22,.61,.36,1);
     --dur:.5s;
   }
-  /* ---- Dark theme: system default + manual [data-theme] override ---- */
-  @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]){
-      --canvas:#14170F; --surface:#1E2118; --surface-alt:#1A1D14;
-      --heading:#F1EEE3; --text:#D8DBCE; --muted:#9DA192;
-      --primary:#A9C3AE; --primary-2:#93b39a; --sage:#7C9885;
-      --sage-soft:#232a20; --brass:#C9A86B; --brass-text:#CBAA6E;
-      --border:#33372C; --btn-bg:#C9A86B; --btn-fg:#14170F;
-      --on-primary:#F1EEE3; --on-primary-mut:#B7C3B4;
-      --shadow-sm:0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.28);
-      --shadow-md:0 12px 44px rgba(0,0,0,.45);
-      --shadow-brass:0 10px 30px rgba(0,0,0,.4);
-    }
-  }
-  :root[data-theme="dark"]{
-    --canvas:#14170F; --surface:#1E2118; --surface-alt:#1A1D14;
-    --heading:#F1EEE3; --text:#D8DBCE; --muted:#9DA192;
-    --primary:#A9C3AE; --primary-2:#93b39a; --sage:#7C9885;
-    --sage-soft:#232a20; --brass:#C9A86B; --brass-text:#CBAA6E;
-    --border:#33372C; --btn-bg:#C9A86B; --btn-fg:#14170F;
-    --on-primary:#F1EEE3; --on-primary-mut:#B7C3B4;
-    --shadow-sm:0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.28);
-    --shadow-md:0 12px 44px rgba(0,0,0,.45);
-    --shadow-brass:0 10px 30px rgba(0,0,0,.4);
-  }
+  /* Arabic: swap to an elegant Arabic pairing that mirrors Fraunces / Inter */
+  [lang="ar"]{--font-body:'Cairo',sans-serif;--font-display:'El Messiri','Cairo',serif}
 
   /* ---- Reset & base ---- */
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{font-family:var(--font-body);color:var(--text);background:var(--canvas);
-    line-height:1.65;overflow-x:hidden;-webkit-text-size-adjust:100%;
-    transition:background .4s var(--ease),color .4s var(--ease)}
+    line-height:1.65;overflow-x:hidden;-webkit-text-size-adjust:100%}
   img{max-width:100%;display:block}
   a{text-decoration:none;color:inherit}
   ul{list-style:none}
   h1,h2,h3,h4{font-family:var(--font-display);color:var(--heading);line-height:1.08;
     font-weight:600;letter-spacing:-.01em}
   ::selection{background:var(--sage);color:#14170F}
-  .skip-link{position:absolute;left:-999px;top:0;background:var(--primary);color:var(--canvas);
+  .skip-link{position:absolute;inset-inline-start:-999px;top:0;background:var(--primary);color:var(--canvas);
     padding:10px 16px;border-radius:0 0 8px 0;z-index:2000;font-weight:600}
-  .skip-link:focus{left:0}
+  .skip-link:focus{inset-inline-start:0}
   :focus-visible{outline:2.5px solid var(--brass);outline-offset:3px;border-radius:4px}
 
   .wrap{max-width:var(--container);margin:0 auto;padding-inline:var(--pad)}
@@ -182,7 +161,6 @@
   section{padding-block:var(--gap)}
   .band{background:var(--surface-alt)}
 
-
   /* ---- Header / nav ---- */
   header{position:fixed;inset:0 0 auto 0;z-index:1000;transition:background .4s var(--ease),
     box-shadow .4s var(--ease),border-color .4s var(--ease);border-bottom:1px solid transparent}
@@ -210,13 +188,9 @@
     transition:border-color .3s var(--ease),background .3s var(--ease),transform .3s var(--ease)}
   .icon-btn:hover{border-color:var(--primary);transform:translateY(-1px)}
   .icon-btn svg{width:19px;height:19px}
-  .theme-toggle .moon{display:none}
-  :root[data-theme="dark"] .theme-toggle .sun{display:none}
-  :root[data-theme="dark"] .theme-toggle .moon{display:block}
-  @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]) .theme-toggle .sun{display:none}
-    :root:not([data-theme="light"]) .theme-toggle .moon{display:block}
-  }
+  /* Language toggle: text pill */
+  .lang-toggle{width:auto;padding-inline:16px;border-radius:var(--r-pill);
+    font-family:var(--font-body);font-weight:600;font-size:.85rem;letter-spacing:.02em;line-height:1}
   .menu-btn{display:none}
 
   /* Mobile drawer */
@@ -225,10 +199,11 @@
   .drawer-scrim{position:absolute;inset:0;background:rgba(20,23,15,.5);
     opacity:0;transition:opacity .35s var(--ease)}
   .drawer.open .drawer-scrim{opacity:1}
-  .drawer-panel{position:absolute;top:0;right:0;height:100%;width:min(340px,86vw);
-    background:var(--canvas);border-left:1px solid var(--border);
+  .drawer-panel{position:absolute;top:0;inset-inline-end:0;height:100%;width:min(340px,86vw);
+    background:var(--canvas);border-inline-start:1px solid var(--border);
     padding:96px 28px 32px;display:flex;flex-direction:column;gap:6px;
     transform:translateX(100%);transition:transform .4s var(--ease);overflow-y:auto}
+  [dir="rtl"] .drawer-panel{transform:translateX(-100%)}
   .drawer.open .drawer-panel{transform:none}
   .drawer-panel a{padding:14px 16px;border-radius:var(--r-sm);font-weight:500;font-size:1.05rem;
     color:var(--heading)}
@@ -242,6 +217,8 @@
     background-image:linear-gradient(100deg,rgba(9,20,16,.88),rgba(9,20,16,.6) 46%,rgba(9,20,16,.32)),
       url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=80');
     animation:kenBurns 22s ease-in-out infinite alternate}
+  [dir="rtl"] .hero-bg{background-image:linear-gradient(260deg,rgba(9,20,16,.88),rgba(9,20,16,.6) 46%,rgba(9,20,16,.32)),
+      url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=80')}
   .hero-content{position:relative;z-index:1;max-width:700px}
   .hero .eyebrow{color:#DAC49E}
   .hero .eyebrow::before{background:#C9A86B}
@@ -250,6 +227,7 @@
   .hero h1 em{font-style:italic;color:#DDBE86}
   .hero-lead{font-size:clamp(1.08rem,1.7vw,1.3rem);color:rgba(247,242,233,.85);margin:26px 0 36px;max-width:50ch}
   .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  [dir="rtl"] .hero-actions .btn svg{transform:scaleX(-1)}
   .hero-note{margin-top:30px;font-size:.92rem;color:rgba(247,242,233,.82);
     display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   .hero-note .stars{color:#DDBE86;letter-spacing:2px}
@@ -270,7 +248,7 @@
   .trust{border-block:1px solid var(--border)}
   .trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-block:clamp(36px,5vw,52px)}
   .metric{text-align:center;position:relative}
-  .metric+.metric::before{content:"";position:absolute;left:-12px;top:50%;transform:translateY(-50%);
+  .metric+.metric::before{content:"";position:absolute;inset-inline-start:-12px;top:50%;transform:translateY(-50%);
     width:1px;height:46px;background:var(--border)}
   .metric-num{font-family:var(--font-display);font-size:clamp(2rem,4vw,2.9rem);font-weight:600;
     color:var(--heading);line-height:1}
@@ -298,12 +276,12 @@
   .why-media:hover .why-frame img{transform:scale(1.045)}
   .why-frame::after{content:"";position:absolute;inset:0;pointer-events:none;
     background:linear-gradient(to top,rgba(9,20,16,.34),transparent 42%)}
-  .why-badge{position:absolute;left:-22px;bottom:28px;z-index:2;background:var(--surface);
+  .why-badge{position:absolute;inset-inline-start:-22px;bottom:28px;z-index:2;background:var(--surface);
     border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow-md);padding:14px 20px}
   .why-badge .stars{color:var(--brass);font-size:.82rem;letter-spacing:1.5px;display:block}
   .why-badge .why-badge-main{font-size:.82rem;color:var(--muted);margin-top:3px}
   .why-badge .why-badge-main strong{font-family:var(--font-display);font-size:1.2rem;color:var(--heading);
-    font-weight:600;margin-right:2px}
+    font-weight:600;margin-inline-end:2px}
   .why-copy .section-head{margin-bottom:clamp(30px,4vw,42px)}
   .why-list{display:flex;flex-direction:column;gap:24px;margin-bottom:38px}
   .why-feature{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
@@ -336,7 +314,7 @@
   .faq-wrap{max-width:820px;margin-inline:auto}
   .faq-item{border-bottom:1px solid var(--border)}
   .faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;
-    background:none;border:none;cursor:pointer;text-align:left;padding:26px 4px;
+    background:none;border:none;cursor:pointer;text-align:start;padding:26px 4px;
     font-family:var(--font-display);font-size:clamp(1.1rem,2vw,1.3rem);font-weight:500;color:var(--heading)}
   .faq-sign{position:relative;width:22px;height:22px;flex:none}
   .faq-sign::before,.faq-sign::after{content:"";position:absolute;background:var(--brass);
@@ -346,11 +324,10 @@
   .faq-item.open .faq-sign::after{transform:translateX(-50%) scaleY(0);opacity:0}
   .faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease),padding .4s var(--ease)}
   .faq-a p{padding:0 4px;color:var(--muted);font-size:1rem;line-height:1.7}
-  .faq-item.open .faq-a{max-height:260px}
+  .faq-item.open .faq-a{max-height:320px}
   .faq-item.open .faq-a p{padding:0 4px 28px}
 
-  /* ---- CTA band ---- */
-  /* CTA uses fixed brand colours (a solid brand block, so it doesn't invert with theme) */
+  /* ---- CTA band (fixed brand colours) ---- */
   .cta{background:#1F3D34;color:#F1EEE6;text-align:center;
     border-radius:clamp(24px,4vw,40px);padding:clamp(56px,8vw,96px) var(--pad);
     position:relative;overflow:hidden}
@@ -385,6 +362,11 @@
   .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     padding-top:28px;font-size:.85rem;color:var(--muted)}
   .foot-bottom a{color:var(--brass-text)}
+
+  /* ---- Arabic / RTL adjustments ---- */
+  [lang="ar"] h1,[lang="ar"] h2,[lang="ar"] h3,[lang="ar"] h4{letter-spacing:0}
+  [lang="ar"] .eyebrow,[lang="ar"] .foot-col h4{letter-spacing:0;text-transform:none}
+  [lang="ar"] .section-title em,[lang="ar"] .hero h1 em,[lang="ar"] .cta h2 em{font-style:normal}
 
   /* ---- Scroll reveal ---- */
   [data-reveal]{opacity:0;transform:translateY(30px);
@@ -428,11 +410,11 @@
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
   <header id="header">
     <nav>
-      <a class="logo" href="#" aria-label="Meridian Dental Studio home">
+      <a class="logo" href="#" data-i18n-aria="aria.home" aria-label="Meridian Dental Studio home">
         <svg class="logo-mark" viewBox="0 0 34 34" fill="none" aria-hidden="true">
           <path d="M17 3C10 3 4.5 8.2 4.5 15v16h25V15C29.5 8.2 24 3 17 3z" stroke="currentColor" stroke-width="1.6"/>
           <path d="M17 9c-3.2 0-5.6 2.4-5.6 5.6 0 2.4 1.4 3.8 1.4 7.4M17 9c3.2 0 5.6 2.4 5.6 5.6 0 2.4-1.4 3.8-1.4 7.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
@@ -440,18 +422,15 @@
         Meridian
       </a>
       <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#approach">Approach</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="#approach" data-i18n="nav.approach">Approach</a></li>
+        <li><a href="#reviews" data-i18n="nav.reviews">Reviews</a></li>
+        <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
       </ul>
       <div class="nav-right">
-        <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Switch colour theme">
-          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.4 4.4l1.9 1.9M17.7 17.7l1.9 1.9M2.5 12h2.6M18.9 12h2.6M4.4 19.6l1.9-1.9M17.7 6.3l1.9-1.9"/></svg>
-          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>
-        </button>
-        <a class="btn btn-primary nav-cta" href="#book">Book a visit</a>
-        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+        <button class="icon-btn lang-toggle" id="langToggle" aria-label="التبديل إلى العربية"><span id="langLabel">العربية</span></button>
+        <a class="btn btn-primary nav-cta" href="#book" data-i18n="btn.book">Book a visit</a>
+        <button class="icon-btn menu-btn" id="menuBtn" data-i18n-aria="aria.menu" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
       </div>
@@ -461,30 +440,30 @@
   <div class="drawer" id="drawer">
     <div class="drawer-scrim" data-close></div>
     <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
-      <a href="#services" data-close>Services</a>
-      <a href="#approach" data-close>Approach</a>
-      <a href="#reviews" data-close>Reviews</a>
-      <a href="#faq" data-close>FAQ</a>
-      <a class="btn btn-primary" href="#book" data-close>Book a visit</a>
+      <a href="#services" data-close data-i18n="nav.services">Services</a>
+      <a href="#approach" data-close data-i18n="nav.approach">Approach</a>
+      <a href="#reviews" data-close data-i18n="nav.reviews">Reviews</a>
+      <a href="#faq" data-close data-i18n="nav.faq">FAQ</a>
+      <a class="btn btn-primary" href="#book" data-close data-i18n="btn.book">Book a visit</a>
     </div>
   </div>
 
   <main id="main">
     <!-- HERO -->
     <section class="hero" aria-label="Introduction">
-      <div class="hero-bg" role="img" aria-label="Calm, light-filled treatment room at Meridian Dental Studio"></div>
+      <div class="hero-bg" role="img" data-i18n-aria="aria.heroImg" aria-label="Calm, light-filled treatment room at Meridian Dental Studio"></div>
       <div class="wrap">
         <div class="hero-content">
-          <span class="eyebrow">Gentle dentistry · Austin, TX</span>
-          <h1>Careful, unhurried care for the smile you keep <em>for life</em>.</h1>
-          <p class="hero-lead">For eighteen years, Austin has trusted Meridian for calm visits, honest pricing, and comfort built into every appointment.</p>
+          <span class="eyebrow" data-i18n="hero.eyebrow">Gentle dentistry · Austin, TX</span>
+          <h1 data-i18n="hero.h1">Careful, unhurried care for the smile you keep <em>for life</em>.</h1>
+          <p class="hero-lead" data-i18n="hero.lead">For eighteen years, Austin has trusted Meridian for calm visits, honest pricing, and comfort built into every appointment.</p>
           <div class="hero-actions">
-            <a class="btn btn-on-dark" href="#book">Book a visit
+            <a class="btn btn-on-dark" href="#book"><span data-i18n="btn.book">Book a visit</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a class="btn btn-ghost-dark" href="#services">Explore care</a>
+            <a class="btn btn-ghost-dark" href="#services" data-i18n="hero.explore">Explore care</a>
           </div>
-          <p class="hero-note"><span class="stars" aria-hidden="true">★★★★★</span> Rated 4.9 by 14,000+ patients across Austin</p>
+          <p class="hero-note" data-i18n="hero.note"><span class="stars" aria-hidden="true">★★★★★</span> Rated 4.9 by 14,000+ patients across Austin</p>
         </div>
       </div>
     </section>
@@ -492,10 +471,10 @@
     <!-- TRUST -->
     <section class="trust" aria-label="Practice at a glance" style="padding-block:0">
       <div class="wrap">
-        <div class="metric"><div class="metric-num" data-target="14200" data-suffix="+">0</div><div class="metric-label">Patients cared for</div></div>
-        <div class="metric"><div class="metric-num" data-target="18">0</div><div class="metric-label">Years in Austin</div></div>
-        <div class="metric"><div class="metric-num" data-target="4.9">0</div><div class="metric-label">Average rating</div></div>
-        <div class="metric"><div class="metric-num" data-target="25">0</div><div class="metric-label">Dental experts</div></div>
+        <div class="metric"><div class="metric-num" data-target="14200" data-suffix="+">0</div><div class="metric-label" data-i18n="trust.patients">Patients cared for</div></div>
+        <div class="metric"><div class="metric-num" data-target="18">0</div><div class="metric-label" data-i18n="trust.years">Years in Austin</div></div>
+        <div class="metric"><div class="metric-num" data-target="4.9">0</div><div class="metric-label" data-i18n="trust.rating">Average rating</div></div>
+        <div class="metric"><div class="metric-num" data-target="25">0</div><div class="metric-label" data-i18n="trust.experts">Dental experts</div></div>
       </div>
     </section>
 
@@ -503,40 +482,40 @@
     <section class="services" id="services">
       <div class="wrap">
         <div class="section-head center" data-reveal>
-          <span class="eyebrow">What we do</span>
-          <h2 class="section-title">Complete care, <em>calmly</em> delivered</h2>
-          <p class="lead">From a quiet cleaning to a full smile restored — thoughtful dentistry for every stage of life, all under one roof.</p>
+          <span class="eyebrow" data-i18n="services.eyebrow">What we do</span>
+          <h2 class="section-title" data-i18n="services.title">Complete care, <em>calmly</em> delivered</h2>
+          <p class="lead" data-i18n="services.lead">From a quiet cleaning to a full smile restored — thoughtful dentistry for every stage of life, all under one roof.</p>
         </div>
         <div class="svc-grid">
           <article class="svc-card" data-reveal>
             <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.6-3 7.7-7 9-4-1.3-7-4.4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
-            <h3>General &amp; Preventive</h3>
-            <p>Unhurried cleanings, exams, and digital X-rays that catch the small things before they become big ones.</p>
+            <h3 data-i18n="svc.1.t">General &amp; Preventive</h3>
+            <p data-i18n="svc.1.d">Unhurried cleanings, exams, and digital X-rays that catch the small things before they become big ones.</p>
           </article>
           <article class="svc-card" data-reveal data-delay="1">
             <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.4L12 17l-1.9-5.6L4.5 10l5.6-1.4z"/><path d="M18.5 15.5l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z"/></svg></div>
-            <h3>Cosmetic &amp; Whitening</h3>
-            <p>Whitening, veneers, and bonding shaped to your face — refined and natural, never overdone.</p>
+            <h3 data-i18n="svc.2.t">Cosmetic &amp; Whitening</h3>
+            <p data-i18n="svc.2.d">Whitening, veneers, and bonding shaped to your face — refined and natural, never overdone.</p>
           </article>
           <article class="svc-card" data-reveal data-delay="2">
             <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12l3 5-9 11L3 9z"/><path d="M3 9h18M9 4l-3 5 6 11 6-11-3-5"/></svg></div>
-            <h3>Dental Implants</h3>
-            <p>Permanent, natural-feeling tooth replacement, placed with 3D-guided precision and lifetime support.</p>
+            <h3 data-i18n="svc.3.t">Dental Implants</h3>
+            <p data-i18n="svc.3.d">Permanent, natural-feeling tooth replacement, placed with 3D-guided precision and lifetime support.</p>
           </article>
           <article class="svc-card" data-reveal>
             <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5a8 8 0 0 0 16 0"/><path d="M4 9.5h16"/><path d="M8 9.5v3M12 9.5v4M16 9.5v3"/></svg></div>
-            <h3>Invisalign&reg; Aligners</h3>
-            <p>Straighten quietly with clear aligners and a plan that fits around your life, not the other way around.</p>
+            <h3 data-i18n="svc.4.t">Invisalign&reg; Aligners</h3>
+            <p data-i18n="svc.4.d">Straighten quietly with clear aligners and a plan that fits around your life, not the other way around.</p>
           </article>
           <article class="svc-card" data-reveal data-delay="1">
             <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v8M8 12h8"/></svg></div>
-            <h3>Emergency Care</h3>
-            <p>Pain, a chip, a lost crown — call before 3pm and we&rsquo;ll do everything to see you the same day.</p>
+            <h3 data-i18n="svc.5.t">Emergency Care</h3>
+            <p data-i18n="svc.5.d">Pain, a chip, a lost crown — call before 3pm and we&rsquo;ll do everything to see you the same day.</p>
           </article>
           <article class="svc-card" data-reveal data-delay="2">
             <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5s-6-4.4-8.3-7.8A4.4 4.4 0 0 1 12 7.2a4.4 4.4 0 0 1 8.3 5.5C18 16.1 12 20.5 12 20.5z"/></svg></div>
-            <h3>Kids &amp; Family</h3>
-            <p>Patient, gentle first visits that help children grow up genuinely unafraid of the dentist.</p>
+            <h3 data-i18n="svc.6.t">Kids &amp; Family</h3>
+            <p data-i18n="svc.6.d">Patient, gentle first visits that help children grow up genuinely unafraid of the dentist.</p>
           </article>
         </div>
       </div>
@@ -548,34 +527,34 @@
         <div class="why-media" data-reveal>
           <div class="hero-blob" aria-hidden="true"></div>
           <div class="why-frame">
-            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=880&h=1100&fit=crop&crop=faces&q=80" alt="A Meridian dentist reviewing a patient's X-rays together during a consultation" loading="lazy" decoding="async" width="880" height="1100" />
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=880&h=1100&fit=crop&crop=faces&q=80" data-i18n-alt="alt.whyImg" alt="A Meridian dentist reviewing a patient's X-rays together during a consultation" loading="lazy" decoding="async" width="880" height="1100" />
           </div>
           <div class="why-badge">
             <span class="stars" aria-hidden="true">★★★★★</span>
-            <div class="why-badge-main"><strong>4.9</strong> across 1,420 reviews</div>
+            <div class="why-badge-main" data-i18n="why.badge"><strong>4.9</strong> across 1,420 reviews</div>
           </div>
         </div>
         <div class="why-copy" data-reveal data-delay="1">
           <div class="section-head">
-            <span class="eyebrow">Why Meridian</span>
-            <h2 class="section-title">Care built around <em>your comfort</em></h2>
-            <p class="lead">We rebuilt the dental visit from the chair up — slower, clearer, and genuinely kind.</p>
+            <span class="eyebrow" data-i18n="why.eyebrow">Why Meridian</span>
+            <h2 class="section-title" data-i18n="why.title">Care built around <em>your comfort</em></h2>
+            <p class="lead" data-i18n="why.lead">We rebuilt the dental visit from the chair up — slower, clearer, and genuinely kind.</p>
           </div>
           <div class="why-list">
             <div class="why-feature">
               <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><rect x="3" y="13" width="4.5" height="7" rx="2"/><rect x="16.5" y="13" width="4.5" height="7" rx="2"/></svg></div>
-              <div><h4>Calm by design</h4><p>Noise-cancelling headphones, sedation when you want it, and a pace set by you — never the clock.</p></div>
+              <div><h4 data-i18n="why.f1.t">Calm by design</h4><p data-i18n="why.f1.d">Noise-cancelling headphones, sedation when you want it, and a pace set by you — never the clock.</p></div>
             </div>
             <div class="why-feature">
               <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5V5.5A1.5 1.5 0 0 1 5.5 4h7l7.5 7.5a1.5 1.5 0 0 1 0 2.1l-6.4 6.4a1.5 1.5 0 0 1-2.1 0L4 12.5z"/><circle cx="8.6" cy="8.6" r="1.3"/></svg></div>
-              <div><h4>Honest, upfront pricing</h4><p>Clear quotes before we begin, insurance filed for you, and flexible plans with no surprises.</p></div>
+              <div><h4 data-i18n="why.f2.t">Honest, upfront pricing</h4><p data-i18n="why.f2.d">Clear quotes before we begin, insurance filed for you, and flexible plans with no surprises.</p></div>
             </div>
             <div class="why-feature">
               <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="12" rx="2"/><path d="M7.5 9h9M7.5 12.5h5.5"/><path d="M8.5 21h7M12 17v4"/></svg></div>
-              <div><h4>Quietly advanced</h4><p>3D scanning, same-day crowns, and a preview of your finished smile before we start.</p></div>
+              <div><h4 data-i18n="why.f3.t">Quietly advanced</h4><p data-i18n="why.f3.d">3D scanning, same-day crowns, and a preview of your finished smile before we start.</p></div>
             </div>
           </div>
-          <div class="why-cta"><a class="btn btn-primary" href="#book">Meet the team</a></div>
+          <div class="why-cta"><a class="btn btn-primary" href="#book" data-i18n="why.cta">Meet the team</a></div>
         </div>
       </div>
     </section>
@@ -584,28 +563,28 @@
     <section class="reviews" id="reviews">
       <div class="wrap">
         <div class="section-head center" data-reveal>
-          <span class="eyebrow">Patient stories</span>
-          <h2 class="section-title">Loved by <em>Austin smiles</em></h2>
-          <p class="lead">Honest words from patients who used to dread the dentist.</p>
+          <span class="eyebrow" data-i18n="reviews.eyebrow">Patient stories</span>
+          <h2 class="section-title" data-i18n="reviews.title">Loved by <em>Austin smiles</em></h2>
+          <p class="lead" data-i18n="reviews.lead">Honest words from patients who used to dread the dentist.</p>
         </div>
         <div class="quotes">
           <figure class="quote" data-reveal>
             <div class="mark" aria-hidden="true">&ldquo;</div>
             <div class="quote-stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote class="quote-text">I put off the dentist for nine years out of fear. Meridian made it so calm I booked my next visit before I left.</blockquote>
-            <figcaption class="quote-by"><span class="avatar" aria-hidden="true">D</span><span><span class="quote-name">Daniel R.</span><br><span class="quote-loc">Austin, TX</span></span></figcaption>
+            <blockquote class="quote-text" data-i18n="rev.1.q">I put off the dentist for nine years out of fear. Meridian made it so calm I booked my next visit before I left.</blockquote>
+            <figcaption class="quote-by"><span class="avatar" aria-hidden="true">D</span><span><span class="quote-name" data-i18n="rev.1.n">Daniel R.</span><br><span class="quote-loc" data-i18n="rev.1.l">Austin, TX</span></span></figcaption>
           </figure>
           <figure class="quote" data-reveal data-delay="1">
             <div class="mark" aria-hidden="true">&ldquo;</div>
             <div class="quote-stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote class="quote-text">My implant is so natural my own family can&rsquo;t tell which tooth it is. Every step was explained, unhurried, kind.</blockquote>
-            <figcaption class="quote-by"><span class="avatar" aria-hidden="true">S</span><span><span class="quote-name">Sofia M.</span><br><span class="quote-loc">Round Rock, TX</span></span></figcaption>
+            <blockquote class="quote-text" data-i18n="rev.2.q">My implant is so natural my own family can&rsquo;t tell which tooth it is. Every step was explained, unhurried, kind.</blockquote>
+            <figcaption class="quote-by"><span class="avatar" aria-hidden="true">S</span><span><span class="quote-name" data-i18n="rev.2.n">Sofia M.</span><br><span class="quote-loc" data-i18n="rev.2.l">Round Rock, TX</span></span></figcaption>
           </figure>
           <figure class="quote" data-reveal data-delay="2">
             <div class="mark" aria-hidden="true">&ldquo;</div>
             <div class="quote-stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote class="quote-text">They saw my son the same day he chipped a tooth and turned a scary moment into an easy one. Our dentist for life.</blockquote>
-            <figcaption class="quote-by"><span class="avatar" aria-hidden="true">P</span><span><span class="quote-name">Priya K.</span><br><span class="quote-loc">Cedar Park, TX</span></span></figcaption>
+            <blockquote class="quote-text" data-i18n="rev.3.q">They saw my son the same day he chipped a tooth and turned a scary moment into an easy one. Our dentist for life.</blockquote>
+            <figcaption class="quote-by"><span class="avatar" aria-hidden="true">P</span><span><span class="quote-name" data-i18n="rev.3.n">Priya K.</span><br><span class="quote-loc" data-i18n="rev.3.l">Cedar Park, TX</span></span></figcaption>
           </figure>
         </div>
       </div>
@@ -615,26 +594,26 @@
     <section class="faq band" id="faq">
       <div class="wrap">
         <div class="section-head center" data-reveal>
-          <span class="eyebrow">Good to know</span>
-          <h2 class="section-title">Questions, <em>answered</em></h2>
-          <p class="lead">The things patients ask us most — up front and honest.</p>
+          <span class="eyebrow" data-i18n="faq.eyebrow">Good to know</span>
+          <h2 class="section-title" data-i18n="faq.title">Questions, <em>answered</em></h2>
+          <p class="lead" data-i18n="faq.lead">The things patients ask us most — up front and honest.</p>
         </div>
         <div class="faq-wrap" data-reveal>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Do you accept dental insurance?<span class="faq-sign" aria-hidden="true"></span></button>
-            <div class="faq-a"><p>Yes — we work with most major PPO plans and file your claims for you. We verify your benefits before the visit, so there are no surprises.</p></div>
+            <button class="faq-q" aria-expanded="false"><span data-i18n="faq.q1">Do you accept dental insurance?</span><span class="faq-sign" aria-hidden="true"></span></button>
+            <div class="faq-a"><p data-i18n="faq.a1">Yes — we work with most major PPO plans and file your claims for you. We verify your benefits before the visit, so there are no surprises.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">I&rsquo;m anxious about the dentist. How do you help?<span class="faq-sign" aria-hidden="true"></span></button>
-            <div class="faq-a"><p>Comfort is built into every visit — headphones, sedation options, and a slow, judgment-free pace. Tell us what worries you, and we&rsquo;ll shape the appointment around it.</p></div>
+            <button class="faq-q" aria-expanded="false"><span data-i18n="faq.q2">I&rsquo;m anxious about the dentist. How do you help?</span><span class="faq-sign" aria-hidden="true"></span></button>
+            <div class="faq-a"><p data-i18n="faq.a2">Comfort is built into every visit — headphones, sedation options, and a slow, judgment-free pace. Tell us what worries you, and we&rsquo;ll shape the appointment around it.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">Can I be seen the same day for an emergency?<span class="faq-sign" aria-hidden="true"></span></button>
-            <div class="faq-a"><p>Almost always. We hold time each day for emergencies — call before 3pm and we&rsquo;ll do everything we can to see you today.</p></div>
+            <button class="faq-q" aria-expanded="false"><span data-i18n="faq.q3">Can I be seen the same day for an emergency?</span><span class="faq-sign" aria-hidden="true"></span></button>
+            <div class="faq-a"><p data-i18n="faq.a3">Almost always. We hold time each day for emergencies — call before 3pm and we&rsquo;ll do everything we can to see you today.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">How much does whitening cost?<span class="faq-sign" aria-hidden="true"></span></button>
-            <div class="faq-a"><p>In-chair whitening starts at $299 and take-home kits at $149. Your dentist will recommend the right option during a complimentary consult.</p></div>
+            <button class="faq-q" aria-expanded="false"><span data-i18n="faq.q4">How much does whitening cost?</span><span class="faq-sign" aria-hidden="true"></span></button>
+            <div class="faq-a"><p data-i18n="faq.a4">In-chair whitening starts at $299 and take-home kits at $149. Your dentist will recommend the right option during a complimentary consult.</p></div>
           </div>
         </div>
       </div>
@@ -646,11 +625,11 @@
         <div class="cta" data-reveal>
           <div class="cta-arc" aria-hidden="true"></div>
           <div class="cta-inner">
-            <h2>Your calmest dental visit starts with <em>hello</em>.</h2>
-            <p>New patients are seen within the week. Emergencies, same day. Book online in a minute — or simply call.</p>
+            <h2 data-i18n="cta.h2">Your calmest dental visit starts with <em>hello</em>.</h2>
+            <p data-i18n="cta.p">New patients are seen within the week. Emergencies, same day. Book online in a minute — or simply call.</p>
             <div class="cta-actions">
-              <a class="btn btn-on-dark" href="tel:+15125550123">Book your visit</a>
-              <a class="btn btn-ghost-dark" href="tel:+15125550123">
+              <a class="btn btn-on-dark" href="tel:+15125550123" data-i18n="cta.book">Book your visit</a>
+              <a class="btn btn-ghost-dark" href="tel:+15125550123" dir="ltr">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3.5h3l1.5 5-2 1.2a12 12 0 0 0 5.3 5.3l1.2-2 5 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.7 2 2 0 0 1 6.5 3.5z"/></svg>
                 (512) 555-0123
               </a>
@@ -665,14 +644,14 @@
     <div class="wrap">
       <div class="foot-grid">
         <div class="foot-brand">
-          <a class="logo" href="#" aria-label="Meridian Dental Studio home">
+          <a class="logo" href="#" data-i18n-aria="aria.home" aria-label="Meridian Dental Studio home">
             <svg class="logo-mark" viewBox="0 0 34 34" fill="none" aria-hidden="true">
               <path d="M17 3C10 3 4.5 8.2 4.5 15v16h25V15C29.5 8.2 24 3 17 3z" stroke="currentColor" stroke-width="1.6"/>
               <path d="M17 9c-3.2 0-5.6 2.4-5.6 5.6 0 2.4 1.4 3.8 1.4 7.4M17 9c3.2 0 5.6 2.4 5.6 5.6 0 2.4-1.4 3.8-1.4 7.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
             </svg>
             Meridian
           </a>
-          <p>Gentle, unhurried dentistry in the heart of Austin — comfort-first care for every member of your family.</p>
+          <p data-i18n="foot.brand">Gentle, unhurried dentistry in the heart of Austin — comfort-first care for every member of your family.</p>
           <div class="foot-social">
             <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"/></svg></a>
             <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9V7.2c0-.8.4-1.2 1.3-1.2H17V3h-2.6C11.9 3 11 4.5 11 6.6V9H9v3h2v9h3v-9h2.2l.3-3z"/></svg></a>
@@ -680,37 +659,37 @@
           </div>
         </div>
         <div class="foot-col">
-          <h4>Care</h4>
+          <h4 data-i18n="foot.care">Care</h4>
           <div class="foot-links">
-            <a href="#services">Cleanings &amp; exams</a>
-            <a href="#services">Cosmetic</a>
-            <a href="#services">Implants</a>
-            <a href="#services">Invisalign</a>
-            <a href="#services">Emergency</a>
+            <a href="#services" data-i18n="foot.l.cleanings">Cleanings &amp; exams</a>
+            <a href="#services" data-i18n="foot.l.cosmetic">Cosmetic</a>
+            <a href="#services" data-i18n="foot.l.implants">Implants</a>
+            <a href="#services" data-i18n="foot.l.invisalign">Invisalign</a>
+            <a href="#services" data-i18n="foot.l.emergency">Emergency</a>
           </div>
         </div>
         <div class="foot-col">
-          <h4>Practice</h4>
+          <h4 data-i18n="foot.practice">Practice</h4>
           <div class="foot-links">
-            <a href="#approach">Our approach</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#faq">FAQ</a>
-            <a href="#book">Book a visit</a>
+            <a href="#approach" data-i18n="foot.l.approach">Our approach</a>
+            <a href="#reviews" data-i18n="foot.l.reviews">Reviews</a>
+            <a href="#faq" data-i18n="foot.l.faq">FAQ</a>
+            <a href="#book" data-i18n="btn.book">Book a visit</a>
           </div>
         </div>
         <div class="foot-col">
-          <h4>Visit us</h4>
+          <h4 data-i18n="foot.visit">Visit us</h4>
           <ul class="foot-contact">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>204 Congress Ave, Suite 300, Austin, TX</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3.5h3l1.5 5-2 1.2a12 12 0 0 0 5.3 5.3l1.2-2 5 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.7 2 2 0 0 1 6.5 3.5z"/></svg><a href="tel:+15125550123">(512) 555-0123</a></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><path d="M4 7l8 5.5L20 7"/></svg><a href="mailto:hello@meridiandental.example">hello@meridiandental.example</a></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Mon–Fri · 8am–6pm</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span data-i18n="foot.address">204 Congress Ave, Suite 300, Austin, TX</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3.5h3l1.5 5-2 1.2a12 12 0 0 0 5.3 5.3l1.2-2 5 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.7 2 2 0 0 1 6.5 3.5z"/></svg><a href="tel:+15125550123" dir="ltr">(512) 555-0123</a></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><path d="M4 7l8 5.5L20 7"/></svg><a href="mailto:hello@meridiandental.example" dir="ltr">hello@meridiandental.example</a></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="foot.hours">Mon–Fri · 8am–6pm</span></li>
           </ul>
         </div>
       </div>
       <div class="foot-bottom">
-        <span>© 2026 Meridian Dental Studio. All rights reserved.</span>
-        <span><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Accessibility</a></span>
+        <span data-i18n="foot.copyright">© 2026 Meridian Dental Studio. All rights reserved.</span>
+        <span><a href="#" data-i18n="foot.privacy">Privacy</a> · <a href="#" data-i18n="foot.terms">Terms</a> · <a href="#" data-i18n="foot.accessibility">Accessibility</a></span>
       </div>
     </div>
   </footer>
@@ -719,31 +698,183 @@
   (function(){
     'use strict';
     var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var root = document.documentElement;
 
-    /* Theme toggle — respects system, remembers choice */
-    var root = document.documentElement, tkey = 'meridian-theme';
-    try { var saved = localStorage.getItem(tkey); if(saved) root.setAttribute('data-theme', saved); } catch(e){}
-    document.getElementById('themeToggle').addEventListener('click', function(){
-      var sysDark = matchMedia('(prefers-color-scheme: dark)').matches;
-      var current = root.getAttribute('data-theme') || (sysDark ? 'dark' : 'light');
-      var next = current === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem(tkey, next); } catch(e){}
+    /* ---------- i18n dictionary (EN default + AR) ---------- */
+    var I18N = {
+      en: {
+        "skip":"Skip to content",
+        "aria.home":"Meridian Dental Studio home",
+        "aria.menu":"Open menu",
+        "aria.heroImg":"Calm, light-filled treatment room at Meridian Dental Studio",
+        "alt.whyImg":"A Meridian dentist reviewing a patient's X-rays together during a consultation",
+        "meta.title":"Meridian Dental Studio | Calm, Premium Dentistry in Austin",
+        "meta.desc":"Meridian Dental Studio — calm, unhurried dentistry in Austin. Preventive, cosmetic, implants, Invisalign and same-day emergency care, with comfort built into every visit.",
+        "nav.services":"Services","nav.approach":"Approach","nav.reviews":"Reviews","nav.faq":"FAQ",
+        "btn.book":"Book a visit",
+        "hero.eyebrow":"Gentle dentistry · Austin, TX",
+        "hero.h1":"Careful, unhurried care for the smile you keep <em>for life</em>.",
+        "hero.lead":"For eighteen years, Austin has trusted Meridian for calm visits, honest pricing, and comfort built into every appointment.",
+        "hero.explore":"Explore care",
+        "hero.note":"<span class=\"stars\" aria-hidden=\"true\">★★★★★</span> Rated 4.9 by 14,000+ patients across Austin",
+        "trust.patients":"Patients cared for","trust.years":"Years in Austin","trust.rating":"Average rating","trust.experts":"Dental experts",
+        "services.eyebrow":"What we do",
+        "services.title":"Complete care, <em>calmly</em> delivered",
+        "services.lead":"From a quiet cleaning to a full smile restored — thoughtful dentistry for every stage of life, all under one roof.",
+        "svc.1.t":"General & Preventive","svc.1.d":"Unhurried cleanings, exams, and digital X-rays that catch the small things before they become big ones.",
+        "svc.2.t":"Cosmetic & Whitening","svc.2.d":"Whitening, veneers, and bonding shaped to your face — refined and natural, never overdone.",
+        "svc.3.t":"Dental Implants","svc.3.d":"Permanent, natural-feeling tooth replacement, placed with 3D-guided precision and lifetime support.",
+        "svc.4.t":"Invisalign® Aligners","svc.4.d":"Straighten quietly with clear aligners and a plan that fits around your life, not the other way around.",
+        "svc.5.t":"Emergency Care","svc.5.d":"Pain, a chip, a lost crown — call before 3pm and we’ll do everything to see you the same day.",
+        "svc.6.t":"Kids & Family","svc.6.d":"Patient, gentle first visits that help children grow up genuinely unafraid of the dentist.",
+        "why.eyebrow":"Why Meridian",
+        "why.title":"Care built around <em>your comfort</em>",
+        "why.lead":"We rebuilt the dental visit from the chair up — slower, clearer, and genuinely kind.",
+        "why.badge":"<strong>4.9</strong> across 1,420 reviews",
+        "why.f1.t":"Calm by design","why.f1.d":"Noise-cancelling headphones, sedation when you want it, and a pace set by you — never the clock.",
+        "why.f2.t":"Honest, upfront pricing","why.f2.d":"Clear quotes before we begin, insurance filed for you, and flexible plans with no surprises.",
+        "why.f3.t":"Quietly advanced","why.f3.d":"3D scanning, same-day crowns, and a preview of your finished smile before we start.",
+        "why.cta":"Meet the team",
+        "reviews.eyebrow":"Patient stories",
+        "reviews.title":"Loved by <em>Austin smiles</em>",
+        "reviews.lead":"Honest words from patients who used to dread the dentist.",
+        "rev.1.q":"I put off the dentist for nine years out of fear. Meridian made it so calm I booked my next visit before I left.","rev.1.n":"Daniel R.","rev.1.l":"Austin, TX",
+        "rev.2.q":"My implant is so natural my own family can’t tell which tooth it is. Every step was explained, unhurried, kind.","rev.2.n":"Sofia M.","rev.2.l":"Round Rock, TX",
+        "rev.3.q":"They saw my son the same day he chipped a tooth and turned a scary moment into an easy one. Our dentist for life.","rev.3.n":"Priya K.","rev.3.l":"Cedar Park, TX",
+        "faq.eyebrow":"Good to know",
+        "faq.title":"Questions, <em>answered</em>",
+        "faq.lead":"The things patients ask us most — up front and honest.",
+        "faq.q1":"Do you accept dental insurance?","faq.a1":"Yes — we work with most major PPO plans and file your claims for you. We verify your benefits before the visit, so there are no surprises.",
+        "faq.q2":"I’m anxious about the dentist. How do you help?","faq.a2":"Comfort is built into every visit — headphones, sedation options, and a slow, judgment-free pace. Tell us what worries you, and we’ll shape the appointment around it.",
+        "faq.q3":"Can I be seen the same day for an emergency?","faq.a3":"Almost always. We hold time each day for emergencies — call before 3pm and we’ll do everything we can to see you today.",
+        "faq.q4":"How much does whitening cost?","faq.a4":"In-chair whitening starts at $299 and take-home kits at $149. Your dentist will recommend the right option during a complimentary consult.",
+        "cta.h2":"Your calmest dental visit starts with <em>hello</em>.",
+        "cta.p":"New patients are seen within the week. Emergencies, same day. Book online in a minute — or simply call.",
+        "cta.book":"Book your visit",
+        "foot.brand":"Gentle, unhurried dentistry in the heart of Austin — comfort-first care for every member of your family.",
+        "foot.care":"Care","foot.practice":"Practice","foot.visit":"Visit us",
+        "foot.l.cleanings":"Cleanings & exams","foot.l.cosmetic":"Cosmetic","foot.l.implants":"Implants","foot.l.invisalign":"Invisalign","foot.l.emergency":"Emergency",
+        "foot.l.approach":"Our approach","foot.l.reviews":"Reviews","foot.l.faq":"FAQ",
+        "foot.address":"204 Congress Ave, Suite 300, Austin, TX","foot.hours":"Mon–Fri · 8am–6pm",
+        "foot.copyright":"© 2026 Meridian Dental Studio. All rights reserved.",
+        "foot.privacy":"Privacy","foot.terms":"Terms","foot.accessibility":"Accessibility"
+      },
+      ar: {
+        "skip":"تخطَّ إلى المحتوى",
+        "aria.home":"الصفحة الرئيسية لعيادة ميريديان لطب الأسنان",
+        "aria.menu":"افتح القائمة",
+        "aria.heroImg":"غرفة علاج هادئة ومضاءة في عيادة ميريديان لطب الأسنان",
+        "alt.whyImg":"طبيب أسنان في ميريديان يراجع أشعة المريض معه خلال الاستشارة",
+        "meta.title":"عيادة ميريديان لطب الأسنان | رعاية أسنان راقية وهادئة في أوستن",
+        "meta.desc":"عيادة ميريديان لطب الأسنان — رعاية أسنان هادئة ومتأنّية في أوستن: وقائية وتجميلية وزراعة وتقويم إنفزلاين ورعاية طوارئ في نفس اليوم، مع راحة في كل زيارة.",
+        "nav.services":"خدماتنا","nav.approach":"منهجنا","nav.reviews":"التقييمات","nav.faq":"الأسئلة الشائعة",
+        "btn.book":"احجز زيارتك",
+        "hero.eyebrow":"طب أسنان لطيف · أوستن، تكساس",
+        "hero.h1":"رعاية متأنّية ولطيفة لابتسامةٍ ترافقك <em>مدى الحياة</em>.",
+        "hero.lead":"منذ ثمانية عشر عامًا، تثق أوستن بميريديان لزياراتٍ هادئة وأسعارٍ صادقة وراحةٍ في كل موعد.",
+        "hero.explore":"اكتشف رعايتنا",
+        "hero.note":"<span class=\"stars\" aria-hidden=\"true\">★★★★★</span> تقييم 4.9 من أكثر من 14,000 مريض في أوستن",
+        "trust.patients":"مريض حظوا برعايتنا","trust.years":"عامًا في أوستن","trust.rating":"متوسّط التقييم","trust.experts":"خبير أسنان",
+        "services.eyebrow":"ما نقدّمه",
+        "services.title":"رعاية متكاملة تُقدَّم <em>بهدوء</em>",
+        "services.lead":"من تنظيفٍ هادئ إلى ترميم ابتسامةٍ كاملة — طب أسنان مدروس لكل مرحلة من العمر، تحت سقفٍ واحد.",
+        "svc.1.t":"الرعاية العامة والوقائية","svc.1.d":"تنظيف وفحوصات وأشعة رقمية دون عجلة، تكتشف المشكلات الصغيرة قبل أن تكبر.",
+        "svc.2.t":"التجميل والتبييض","svc.2.d":"تبييض وقشور (فينير) وترميم يُصمَّم ليناسب ملامحك — أنيقٌ وطبيعي دون مبالغة.",
+        "svc.3.t":"زراعة الأسنان","svc.3.d":"بديلٌ دائم للأسنان بإحساسٍ طبيعي، يُزرع بدقّة موجّهة ثلاثية الأبعاد مع دعمٍ مدى الحياة.",
+        "svc.4.t":"تقويم إنفزلاين الشفّاف","svc.4.d":"قوّم أسنانك بهدوء بتقويمٍ شفّاف وخطةٍ تناسب حياتك، لا العكس.",
+        "svc.5.t":"رعاية الطوارئ","svc.5.d":"ألم أو كسر أو تاجٌ مفقود — اتّصل قبل الثالثة عصرًا وسنبذل كل جهدٍ لاستقبالك في نفس اليوم.",
+        "svc.6.t":"الأطفال والعائلة","svc.6.d":"زياراتٌ أولى لطيفة وصبورة تساعد الأطفال على أن يكبروا دون خوفٍ من طبيب الأسنان.",
+        "why.eyebrow":"لماذا ميريديان",
+        "why.title":"رعاية تُبنى حول <em>راحتك</em>",
+        "why.lead":"أعدنا تصميم زيارة الأسنان من الكرسي إلى أعلى — أهدأ وأوضح وألطف حقًّا.",
+        "why.badge":"<strong>4.9</strong> من 1,420 تقييمًا",
+        "why.f1.t":"الهدوء بالتصميم","why.f1.d":"سمّاعات عازلة للضجيج، وتخديرٌ عند رغبتك، وإيقاعٌ تحدّده أنت — لا الساعة.",
+        "why.f2.t":"أسعار صادقة وواضحة","why.f2.d":"عروض أسعار واضحة قبل البدء، ومطالبات تأمين نتولّاها عنك، وخططٌ مرنة بلا مفاجآت.",
+        "why.f3.t":"تقنيةٌ متقدّمة بهدوء","why.f3.d":"مسحٌ ثلاثي الأبعاد، وتيجانٌ في نفس اليوم، ومعاينةٌ لابتسامتك النهائية قبل أن نبدأ.",
+        "why.cta":"تعرّف على الفريق",
+        "reviews.eyebrow":"قصص المرضى",
+        "reviews.title":"محبوبة من <em>ابتسامات أوستن</em>",
+        "reviews.lead":"كلماتٌ صادقة من مرضى كانوا يخشون زيارة طبيب الأسنان.",
+        "rev.1.q":"تجنّبت طبيب الأسنان تسع سنوات خوفًا. جعلتها ميريديان هادئة لدرجة أنني حجزت زيارتي التالية قبل أن أغادر.","rev.1.n":"دانيال ر.","rev.1.l":"أوستن، تكساس",
+        "rev.2.q":"زرعتي طبيعية لدرجة أن عائلتي لا تعرف أي سنٍّ هي. شُرحت كل خطوة بهدوءٍ ولطف.","rev.2.n":"صوفيا م.","rev.2.l":"راوند روك، تكساس",
+        "rev.3.q":"استقبلوا ابني في نفس يوم كسر سنّه وحوّلوا لحظةً مخيفة إلى سهلة. صاروا طبيب أسناننا مدى الحياة.","rev.3.n":"بريا ك.","rev.3.l":"سيدار بارك، تكساس",
+        "faq.eyebrow":"معلوماتٌ مفيدة",
+        "faq.title":"أسئلة <em>وإجابات</em>",
+        "faq.lead":"أكثر ما يسألنا عنه المرضى — بوضوحٍ وصدق.",
+        "faq.q1":"هل تقبلون تأمين الأسنان؟","faq.a1":"نعم — نتعامل مع معظم خطط PPO الكبرى ونتولّى تقديم مطالباتك. نتحقّق من مزاياك قبل الزيارة، فلا مفاجآت.",
+        "faq.q2":"أشعر بالقلق من طبيب الأسنان. كيف تساعدونني؟","faq.a2":"الراحة جزءٌ من كل زيارة — سمّاعات، وخيارات تخدير، وإيقاعٌ هادئ بلا أحكام. أخبرنا بما يقلقك، وسنصمّم الموعد حوله.",
+        "faq.q3":"هل يمكن استقبالي في نفس اليوم للطوارئ؟","faq.a3":"غالبًا نعم. نخصّص وقتًا كل يوم للطوارئ — اتّصل قبل الثالثة عصرًا وسنبذل ما بوسعنا لاستقبالك اليوم.",
+        "faq.q4":"كم تكلفة التبييض؟","faq.a4":"يبدأ التبييض في العيادة من 299 دولارًا وأطقم المنزل من 149 دولارًا. سيوصي طبيبك بالخيار المناسب خلال استشارةٍ مجانية.",
+        "cta.h2":"أهدأ زيارة أسنان تبدأ بكلمة <em>مرحبًا</em>.",
+        "cta.p":"نستقبل المرضى الجدد خلال الأسبوع، والطوارئ في نفس اليوم. احجز عبر الإنترنت في دقيقة — أو اتّصل بنا ببساطة.",
+        "cta.book":"احجز زيارتك",
+        "foot.brand":"طب أسنان لطيف ومتأنٍّ في قلب أوستن — رعايةٌ تضع راحتك أولًا لكل فرد في عائلتك.",
+        "foot.care":"الرعاية","foot.practice":"العيادة","foot.visit":"زورونا",
+        "foot.l.cleanings":"التنظيف والفحوصات","foot.l.cosmetic":"التجميل","foot.l.implants":"الزراعة","foot.l.invisalign":"إنفزلاين","foot.l.emergency":"الطوارئ",
+        "foot.l.approach":"منهجنا","foot.l.reviews":"التقييمات","foot.l.faq":"الأسئلة الشائعة",
+        "foot.address":"٢٠٤ شارع كونغرس، جناح ٣٠٠، أوستن، تكساس","foot.hours":"الاثنين–الجمعة · 8 ص–6 م",
+        "foot.copyright":"© 2026 عيادة ميريديان لطب الأسنان. جميع الحقوق محفوظة.",
+        "foot.privacy":"الخصوصية","foot.terms":"الشروط","foot.accessibility":"إمكانية الوصول"
+      }
+    };
+
+    var LKEY = 'meridian-lang';
+    var metaDesc = document.querySelector('meta[name="description"]');
+    var langLabel = document.getElementById('langLabel');
+    var langBtn = document.getElementById('langToggle');
+
+    function applyDict(lang){
+      var d = I18N[lang] || I18N.en, fb = I18N.en;
+      document.querySelectorAll('[data-i18n]').forEach(function(el){
+        var k = el.getAttribute('data-i18n'); var v = (d[k] != null ? d[k] : fb[k]);
+        if(v != null) el.innerHTML = v;
+      });
+      document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+        var k = el.getAttribute('data-i18n-aria'); var v = (d[k] != null ? d[k] : fb[k]);
+        if(v != null) el.setAttribute('aria-label', v);
+      });
+      document.querySelectorAll('[data-i18n-alt]').forEach(function(el){
+        var k = el.getAttribute('data-i18n-alt'); var v = (d[k] != null ? d[k] : fb[k]);
+        if(v != null) el.setAttribute('alt', v);
+      });
+      if(d['meta.title']) document.title = d['meta.title'];
+      if(metaDesc && d['meta.desc']) metaDesc.setAttribute('content', d['meta.desc']);
+    }
+
+    function setLang(lang){
+      if(lang !== 'ar') lang = 'en';
+      root.setAttribute('lang', lang);
+      root.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      applyDict(lang);
+      // Toggle shows the OTHER language, in its own script
+      langLabel.textContent = (lang === 'ar') ? 'English' : 'العربية';
+      langBtn.setAttribute('aria-label', (lang === 'ar') ? 'Switch to English' : 'التبديل إلى العربية');
+      try { localStorage.setItem(LKEY, lang); } catch(e){}
+    }
+
+    // Initial language: ?lang= → saved → browser → default en
+    var params = new URLSearchParams(location.search);
+    var stored; try { stored = localStorage.getItem(LKEY); } catch(e){}
+    var initial = params.get('lang') || stored || (navigator.language || 'en').slice(0,2);
+    setLang(initial === 'ar' ? 'ar' : 'en');
+
+    langBtn.addEventListener('click', function(){
+      setLang(root.getAttribute('lang') === 'ar' ? 'en' : 'ar');
     });
 
-    /* Header scrolled state */
+    /* ---------- Header scrolled state ---------- */
     var header = document.getElementById('header');
     var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 30); };
     onScroll(); addEventListener('scroll', onScroll, {passive:true});
 
-    /* Mobile drawer */
+    /* ---------- Mobile drawer ---------- */
     var menuBtn = document.getElementById('menuBtn'), drawer = document.getElementById('drawer');
     var setMenu = function(open){ drawer.classList.toggle('open', open); menuBtn.setAttribute('aria-expanded', open); };
     menuBtn.addEventListener('click', function(){ setMenu(!drawer.classList.contains('open')); });
     drawer.querySelectorAll('[data-close]').forEach(function(el){ el.addEventListener('click', function(){ setMenu(false); }); });
     addEventListener('keydown', function(e){ if(e.key === 'Escape') setMenu(false); });
 
-    /* Scroll reveal */
+    /* ---------- Scroll reveal ---------- */
     var reveals = document.querySelectorAll('[data-reveal]');
     if(reduced){ reveals.forEach(function(el){ el.classList.add('in'); }); }
     else {
@@ -753,7 +884,7 @@
       reveals.forEach(function(el){ io.observe(el); });
     }
 
-    /* Count-up metrics */
+    /* ---------- Count-up metrics ---------- */
     var nums = document.querySelectorAll('.metric-num[data-target]');
     var io2 = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
@@ -773,7 +904,7 @@
     }, {threshold:0.6});
     nums.forEach(function(n){ io2.observe(n); });
 
-    /* FAQ accordion */
+    /* ---------- FAQ accordion ---------- */
     document.querySelectorAll('.faq-item').forEach(function(item){
       var btn = item.querySelector('.faq-q');
       btn.addEventListener('click', function(){
